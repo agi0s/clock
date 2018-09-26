@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+<template id="tmpl">
+    <style>
+    </style>
+    <section class="component">
+        <div class="number hours clock"></div>
+        <div class="number minutes clock"></div>
+        <div class="number seconds clock"></div>
+        <div class="fulltime clock"></div>
+        <div class="number month calendar"></div>
+        <div class="number day calendar"></div>
+        <div class="number year calendar"></div>
+        <div class="fullyear calendar"></div>
+    </section>
+</template>
+
+<script>
+    ! function() {
+        var localDocument = document.currentScript.ownerDocument;
+        var tmpl = localDocument.getElementById('tmpl');
+
+        var MessageProto = Object.create(HTMLElement.prototype);
+
+        MessageProto.createdCallback = function() {
+            var root = this.createShadowRoot();
+            root.appendChild(tmpl.content.cloneNode(true));
+        };
+
+        document.registerElement('clock-calendar', {
+            prototype: MessageProto
+        });
+    }();
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

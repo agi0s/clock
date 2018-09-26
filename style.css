@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Unica+One');
+
+:root {
+    --main-bg-color: #17181a;
+    --block-bg-color: #1c1d1f; 
+    --text-accent-color: #c6876f; 
+    --text-main-color: #ffffff;
+}
+
+* {
+    font-family: 'Unica One', bold;
+    user-select: none;
+}
+
+* ::selection {
+    background: red;
+    color: white;
+}
+  
+  body {
+    margin: 0 auto;
+    margin-top: 1%;
+    max-width: 960px;
+    background: url(./assets/bg.png) no-repeat center center fixed, url(./assets/img.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: var(--main-bg-color);
+    height: 100%; 
+    overflow: hidden;
+  }
+  
+  .fulltime {
+      font-size: 50px;
+      color: white;
+      grid-area: fulltime;
+      transition: font-size 3.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .fulltime:hover {
+    font-size: 135px;
+    color: white;
+    transition: font-size 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+  .number {
+    font-size: 250px;
+    color: rgba(198, 135, 111, 1);
+    font-weight: 600;
+  }
+
+  .hours {
+    grid-area: top;
+  }
+
+  .hours::after{
+      content: 'hours';
+      font-size: 20px;
+  }
+  .minutes {
+    grid-area: right;
+  }
+  .minutes::after{
+    content: 'minutes';
+    font-size: 20px;
+}
+  .seconds {
+    display: none;
+    grid-area: bottom;
+  }
+  .seconds::after {
+    content: 'seconds';
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+
+  .year {
+    grid-area: year;
+    font-size: 120px;
+    align-self: self-end;
+    font-size: 160px;
+    letter-spacing: 36px;
+  }
+  .month {
+    margin-left: 20px;
+    grid-area: month;
+    font-size: 90px;
+    align-self: end;
+  }
+  .day {
+    grid-area: day;
+    font-size: 150px;
+  }
+  .fullyear {
+    font-size: 50px;
+    color: white;
+    grid-area: fullyear;
+    transition: font-size 3.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.fullyear:hover {
+  font-size: 105px;
+  color: white;
+  transition: font-size 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.component {
+    display: grid;
+    grid-template-columns: repeat(8, 120px);
+    grid-template-rows: repeat(6, 125px);
+    grid-gap: 1em;
+    grid-template-areas: 
+    ". top top . . day month month"
+    ". top top . . . year year"
+    "fullyear . . . right right . ."
+    "fulltime . . . right right . ."
+    ". . . bottom bottom . . ."
+    ". . . . . . . .";
+}
+
+.hidden {
+    filter: blur(20px);
+    opacity: 0.3;
+    transition: filter 0.7s ease;
+}
+ 
